@@ -1,0 +1,3 @@
+# ExchangeRateNotificationBot
+
+bot name - @ExhageRateNotificationBot
