@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bot\Bot.csproj" />
+    <ProjectReference Include="..\TelegramProviders.Domain\TelegramProviders.Domain.csproj" />
+    <ProjectReference Include="..\TelegramProviders\TelegramProviders.csproj" />
+  </ItemGroup>
+
+</Project>

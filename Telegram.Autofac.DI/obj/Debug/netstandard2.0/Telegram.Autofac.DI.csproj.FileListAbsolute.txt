@@ -1,0 +1,17 @@
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\Telegram.Autofac.DI.deps.json
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\Telegram.Autofac.DI.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.csprojResolveAssemblyReference.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.csproj.CoreCompileInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.AssemblyInfoInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.AssemblyInfo.cs
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\Telegram.Autofac.DI.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\TelegramProviders.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\TelegramProviders.Domain.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\TelegramProviders.Domain.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\TelegramProviders.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\obj\Debug\netstandard2.0\Telegram.Autofac.DI.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\ExchangeRateService.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\ExchangeRateService.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\Bot.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Telegram.Autofac.DI\bin\Debug\netstandard2.0\Bot.pdb
