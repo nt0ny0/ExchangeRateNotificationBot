@@ -1576,6 +1576,7 @@
         "dependencies": {
           "Autofac": "4.6.2",
           "Bot": "1.0.0",
+          "ExchangeRateService": "1.0.0",
           "TelegramProviders": "1.0.0",
           "TelegramProviders.Domain": "1.0.0"
         },

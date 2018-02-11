@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bot\Bot.csproj" />
+    <ProjectReference Include="..\ExchangeRateService\ExchangeRateService.csproj" />
     <ProjectReference Include="..\TelegramProviders.Domain\TelegramProviders.Domain.csproj" />
     <ProjectReference Include="..\TelegramProviders\TelegramProviders.csproj" />
   </ItemGroup>

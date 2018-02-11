@@ -4729,6 +4729,7 @@
     ".NETStandard,Version=v2.0": [
       "Autofac >= 4.6.2",
       "Bot >= 1.0.0",
+      "ExchangeRateService >= 1.0.0",
       "NETStandard.Library >= 2.0.1",
       "TelegramProviders >= 1.0.0",
       "TelegramProviders.Domain >= 1.0.0"
@@ -4770,6 +4771,9 @@
       "frameworks": {
         "netstandard2.0": {
           "projectReferences": {
+            "C:\\Users\\ntny1\\Documents\\Visual Studio 2017\\Projects\\ExchangeRateNotificationBot\\ExchangeRateService\\ExchangeRateService.csproj": {
+              "projectPath": "C:\\Users\\ntny1\\Documents\\Visual Studio 2017\\Projects\\ExchangeRateNotificationBot\\ExchangeRateService\\ExchangeRateService.csproj"
+            },
             "C:\\Users\\ntny1\\Documents\\Visual Studio 2017\\Projects\\ExchangeRateNotificationBot\\TelegramProviders\\TelegramProviders.csproj": {
               "projectPath": "C:\\Users\\ntny1\\Documents\\Visual Studio 2017\\Projects\\ExchangeRateNotificationBot\\TelegramProviders\\TelegramProviders.csproj"
             },

@@ -16,9 +16,9 @@ namespace Bot
 #### Список команд: ####
 /rate текущий курс доллара к рублю";
 
-        public ExchangeRateBot(IMessengerProvider provider)
+        public ExchangeRateBot(IMessengerProvider provider, IExchangeRateService exchangeRateService)
         {
-            _service = new GoogleExchangeRateService();
+            _service = exchangeRateService ?? throw new ArgumentNullException(nameof(exchangeRateService));
             _provider = provider ?? throw new ArgumentNullException(nameof(provider));
         }
 

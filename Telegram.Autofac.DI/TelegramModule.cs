@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Bot;
+using ExchangeRateService;
 using Telegram.Bot;
 using TelegramProviders;
 using TelegramProviders.Domain;
@@ -31,6 +32,9 @@ namespace Telegram.Autofac.DI
                 .SingleInstance();
             builder.RegisterType<UserMessageRequestParser>()
                 .As<IUserMessageRequestParser>()
+                .SingleInstance();
+            builder.RegisterType<GoogleExchangeRateService>()
+                .As<IExchangeRateService>()
                 .SingleInstance();
             builder.RegisterType<ExchangeRateBot>()
                 .As<IMessengerBot>()
