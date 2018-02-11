@@ -1,0 +1,13 @@
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\Bot.deps.json
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\Bot.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\Bot.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\ExchangeRateService.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\TelegramProviders.Domain.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\ExchangeRateService.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\bin\Release\netstandard2.0\TelegramProviders.Domain.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.csprojResolveAssemblyReference.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.csproj.CoreCompileInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.AssemblyInfoInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.AssemblyInfo.cs
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\Bot\obj\Release\netstandard2.0\Bot.pdb

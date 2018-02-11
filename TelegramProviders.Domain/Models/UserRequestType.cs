@@ -4,6 +4,8 @@
     {
         Unknown = 1,
         GetComandList = 2,
-        GetExchangeRate = 3
+        GetUsdToRubExchangeRate = 3,
+        GetEuroToRubExchangeRate = 4,
+        GetEuroToUsdExchangeRate = 5
     }
 }

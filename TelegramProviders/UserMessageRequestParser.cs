@@ -17,13 +17,21 @@ namespace TelegramProviders
             {
                 return UserRequestType.Unknown;
             }
-            if (updateText.Equals("/start", StringComparison.OrdinalIgnoreCase))
+            if (updateText.Equals(UserCommands.GetHelp, StringComparison.OrdinalIgnoreCase))
             {
                 return UserRequestType.GetComandList;
             }
-            if (updateText.Equals("/rate", StringComparison.OrdinalIgnoreCase))
+            if (updateText.Equals(UserCommands.UsdToRubGetRate, StringComparison.OrdinalIgnoreCase))
             {
-                return UserRequestType.GetExchangeRate;
+                return UserRequestType.GetUsdToRubExchangeRate;
+            }
+            if (updateText.Equals(UserCommands.EuroToRubGetRate, StringComparison.OrdinalIgnoreCase))
+            {
+                return UserRequestType.GetEuroToRubExchangeRate;
+            }
+            if (updateText.Equals(UserCommands.EuroToUsdGetRate, StringComparison.OrdinalIgnoreCase))
+            {
+                return UserRequestType.GetEuroToUsdExchangeRate;
             }
             return UserRequestType.Unknown;
         }

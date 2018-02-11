@@ -12,9 +12,11 @@ namespace Bot
         private readonly IMessengerProvider _provider;
         private static int _offset = 0;
 
-        private const string CommandListText = @"
-#### Список команд: ####
-/rate текущий курс доллара к рублю";
+        private readonly string CommandListText = $@"
+Список команд:
+{UserCommands.UsdToRubGetRate} - текущий курс доллара к рублю
+{UserCommands.EuroToRubGetRate} - текущий курс евро к рублю
+{UserCommands.EuroToUsdGetRate} - текущий курс доллара к евро";
 
         public ExchangeRateBot(IMessengerProvider provider, IExchangeRateService exchangeRateService)
         {
@@ -36,29 +38,24 @@ namespace Bot
                         {
                             switch (userRequest.UserRequestType)
                             {
-                                case UserRequestType.GetComandList:
+                                case UserRequestType.GetUsdToRubExchangeRate:
                                 {
-                                    await _provider.SendMessage(userRequest.UserId, CommandListText);
+                                    await HandleGetExchangeRateRequest(userRequest.UserId, "USD", "RUB");
                                     break;
                                 }
-                                case UserRequestType.GetExchangeRate:
+                                case UserRequestType.GetEuroToRubExchangeRate:
                                 {
-                                    string rate = null;
-                                    try
-                                    {
-                                        rate = await _service.GetRateForUsdToRub();
-                                    }
-                                    catch (Exception e)
-                                    {
-                                        Console.WriteLine(e);
-                                        await _provider.SendMessage(userRequest.UserId, "Сервис временно недоступен"); ;
-                                    }
-                                    await _provider.SendMessage(userRequest.UserId, rate);
+                                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "RUB");
+                                    break;
+                                }
+                                case UserRequestType.GetEuroToUsdExchangeRate:
+                                {
+                                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "USD");
                                     break;
                                 }
                                 default:
                                 {
-                                    await _provider.SendMessage(userRequest.UserId, $@"🍊 {CommandListText}");
+                                    await _provider.SendMessage(userRequest.UserId, CommandListText);
                                     break;
                                 }
                             }
@@ -71,6 +68,22 @@ namespace Bot
                 }
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
+        }
+
+        private async Task HandleGetExchangeRateRequest(string userId, string currencyFrom, string currencyTo)
+        {
+            string rate = null;
+            try
+            {
+                rate = await _service.GetRate(currencyFrom, currencyTo);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                await _provider.SendMessage(userId, "Сервис временно недоступен");
+                ;
+            }
+            await _provider.SendMessage(userId, rate);
         }
     }
 }

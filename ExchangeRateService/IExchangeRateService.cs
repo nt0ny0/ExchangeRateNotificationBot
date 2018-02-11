@@ -4,6 +4,6 @@ namespace ExchangeRateService
 {
     public interface IExchangeRateService
     {
-        Task<string> GetRateForUsdToRub();
+        Task<string> GetRate(string from, string to);
     }
 }
