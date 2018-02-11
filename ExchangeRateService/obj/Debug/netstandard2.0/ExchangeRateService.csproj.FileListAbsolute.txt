@@ -1,0 +1,9 @@
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\bin\Debug\netstandard2.0\ExchangeRateService.deps.json
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\bin\Debug\netstandard2.0\ExchangeRateService.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\bin\Debug\netstandard2.0\ExchangeRateService.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.csproj.CoreCompileInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.AssemblyInfoInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.AssemblyInfo.cs
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\ExchangeRateService\obj\Debug\netstandard2.0\ExchangeRateService.csprojResolveAssemblyReference.cache

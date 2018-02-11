@@ -9,13 +9,13 @@ namespace TelegramProviders
 {
     public class TelegramProvider : IMessengerProvider
     {
-        private readonly ITelegramUpdateReader _converter;
+        private readonly ITelegramUpdateReader _reader;
         private readonly ITelegramBotClient _telegramClient;
 
         public TelegramProvider(ITelegramBotClient telegramClient,
-            ITelegramUpdateReader converter)
+            ITelegramUpdateReader reader)
         {
-            _converter = converter;
+            _reader = reader ?? throw new ArgumentNullException(nameof(reader));
             _telegramClient = telegramClient ?? throw new ArgumentNullException(nameof(telegramClient));
         }
 
@@ -27,7 +27,7 @@ namespace TelegramProviders
                 return null;
             }
             var nextOffset = updates.Max(u => u.Id) + 1;
-            var userRequests = updates.Select(_converter.ReadUpdate).ToList();
+            var userRequests = updates.Select(_reader.ReadUpdate).ToList();
             var result = new UserRequestBatch(userRequests, nextOffset);
             return result;
         }

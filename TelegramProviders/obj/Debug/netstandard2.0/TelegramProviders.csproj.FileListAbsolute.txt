@@ -1,0 +1,11 @@
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\bin\Debug\netstandard2.0\TelegramProviders.deps.json
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\bin\Debug\netstandard2.0\TelegramProviders.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\bin\Debug\netstandard2.0\TelegramProviders.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\bin\Debug\netstandard2.0\TelegramProviders.Domain.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\bin\Debug\netstandard2.0\TelegramProviders.Domain.pdb
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.csprojResolveAssemblyReference.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.csproj.CoreCompileInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.AssemblyInfoInputs.cache
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.AssemblyInfo.cs
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.dll
+C:\Users\ntny1\Documents\Visual Studio 2017\Projects\ExchangeRateNotificationBot\TelegramProviders\obj\Debug\netstandard2.0\TelegramProviders.pdb

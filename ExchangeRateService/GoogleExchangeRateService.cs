@@ -6,11 +6,6 @@ using HtmlAgilityPack;
 
 namespace ExchangeRateService
 {
-    public interface IExchangeRateService
-    {
-        Task<string> GetRateForUsdToRub();
-    }
-
     public class GoogleExchangeRateService : IExchangeRateService
     {
         private readonly HtmlDocument _document = new HtmlDocument();

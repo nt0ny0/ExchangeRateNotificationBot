@@ -26,31 +26,48 @@ namespace Bot
         {
             while (true)
             {
-                var requestBatch = await _provider.GetUserRequests(_offset);
-                if (requestBatch != null)
+                try
                 {
-                    _offset = requestBatch.Offset;
-                    foreach (var userRequest in requestBatch.Requests)
+                    var requestBatch = await _provider.GetUserRequests(_offset);
+                    if (requestBatch != null)
                     {
-                        switch (userRequest.UserRequestType)
+                        _offset = requestBatch.Offset;
+                        foreach (var userRequest in requestBatch.Requests)
                         {
-                            case UserRequestType.GetComandList:
+                            switch (userRequest.UserRequestType)
                             {
-                                await _provider.SendMessage(userRequest.UserId, CommandListText);
-                                break;
-                            }
-                            case UserRequestType.GetExchangeRate:
-                            {
-                                await _provider.SendMessage(userRequest.UserId, await _service.GetRateForUsdToRub());
-                                break;
-                            }
-                            default:
-                            {
-                                await _provider.SendMessage(userRequest.UserId, $@"🍊 {CommandListText}");
-                                break;
+                                case UserRequestType.GetComandList:
+                                {
+                                    await _provider.SendMessage(userRequest.UserId, CommandListText);
+                                    break;
+                                }
+                                case UserRequestType.GetExchangeRate:
+                                {
+                                    string rate = null;
+                                    try
+                                    {
+                                        rate = await _service.GetRateForUsdToRub();
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine(e);
+                                        await _provider.SendMessage(userRequest.UserId, "Сервис временно недоступен"); ;
+                                    }
+                                    await _provider.SendMessage(userRequest.UserId, rate);
+                                    break;
+                                }
+                                default:
+                                {
+                                    await _provider.SendMessage(userRequest.UserId, $@"🍊 {CommandListText}");
+                                    break;
+                                }
                             }
                         }
                     }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
                 }
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
