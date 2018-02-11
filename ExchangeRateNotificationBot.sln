@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App", "ExchangeRateNotificationBot\App.csproj", "{0B0F6966-0925-4B30-B655-B9ACDB35BF73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramProviders", "TelegramProviders\TelegramProviders.csproj", "{36A8468C-EB2F-4CEB-BD46-70D6C91D3148}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramProviders", "TelegramProviders\TelegramProviders.csproj", "{36A8468C-EB2F-4CEB-BD46-70D6C91D3148}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TelegramProviders.Domain", "TelegramProviders.Domain\TelegramProviders.Domain.csproj", "{09944231-7B96-42AD-B799-E35DEC766D62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelegramProviders.Domain", "TelegramProviders.Domain\TelegramProviders.Domain.csproj", "{09944231-7B96-42AD-B799-E35DEC766D62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telegram.Autofac.DI", "Telegram.Autofac.DI\Telegram.Autofac.DI.csproj", "{A272BFC2-C414-4BA8-97F9-EC1B0B9D1CAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Autofac.DI", "Telegram.Autofac.DI\Telegram.Autofac.DI.csproj", "{A272BFC2-C414-4BA8-97F9-EC1B0B9D1CAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExchangeRateService", "ExchangeRateService\ExchangeRateService.csproj", "{70E42C19-6FF3-4BE5-96FA-B582C2FBDDE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRateService", "ExchangeRateService\ExchangeRateService.csproj", "{70E42C19-6FF3-4BE5-96FA-B582C2FBDDE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bot", "Bot\Bot.csproj", "{F5A1E392-87CB-4FD3-8280-5FE16269604B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot", "Bot\Bot.csproj", "{F5A1E392-87CB-4FD3-8280-5FE16269604B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{DD25F691-B747-4F7A-9821-15AC22E87758}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0B0F6966-0925-4B30-B655-B9ACDB35BF73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B0F6966-0925-4B30-B655-B9ACDB35BF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B0F6966-0925-4B30-B655-B9ACDB35BF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B0F6966-0925-4B30-B655-B9ACDB35BF73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36A8468C-EB2F-4CEB-BD46-70D6C91D3148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36A8468C-EB2F-4CEB-BD46-70D6C91D3148}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36A8468C-EB2F-4CEB-BD46-70D6C91D3148}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +41,10 @@ Global
 		{F5A1E392-87CB-4FD3-8280-5FE16269604B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5A1E392-87CB-4FD3-8280-5FE16269604B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5A1E392-87CB-4FD3-8280-5FE16269604B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD25F691-B747-4F7A-9821-15AC22E87758}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD25F691-B747-4F7A-9821-15AC22E87758}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD25F691-B747-4F7A-9821-15AC22E87758}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD25F691-B747-4F7A-9821-15AC22E87758}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
