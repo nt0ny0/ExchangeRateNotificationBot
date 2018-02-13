@@ -13,7 +13,7 @@ namespace Bot
         private static int _offset = 0;
 
         private readonly string CommandListText = $@"
-Список команд:
+<b>Список команд</b>:
 {UserCommands.UsdToRubGetRate} - текущий курс доллара к рублю
 {UserCommands.EuroToRubGetRate} - текущий курс евро к рублю
 {UserCommands.EuroToUsdGetRate} - текущий курс доллара к евро";
@@ -83,7 +83,9 @@ namespace Bot
                 await _provider.SendMessage(userId, "Сервис временно недоступен");
                 ;
             }
-            await _provider.SendMessage(userId, rate);
+
+            string response = $"{rate} {UserCommands.GetHelp}";
+            await _provider.SendMessage(userId, response);
         }
     }
 }

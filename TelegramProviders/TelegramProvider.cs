@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
+using Telegram.Bot.Types.Enums;
 using TelegramProviders.Domain;
 using TelegramProviders.Domain.Models;
 
@@ -34,7 +35,7 @@ namespace TelegramProviders
 
         public async Task SendMessage(string userId, string message)
         {
-            await _telegramClient.SendTextMessageAsync(userId, message);
+            await _telegramClient.SendTextMessageAsync(userId, message, parseMode: ParseMode.Html);
         }
     }
 }
