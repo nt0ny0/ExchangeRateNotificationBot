@@ -21,12 +21,12 @@ namespace App.Host
                 var token = configuration["telegram-token"];
                 var app = new Application();
                 app.Run(token);
-                Logger.Info("Application stared");
+                Logger.Info("Application started");
                 WaitStopCommand();
             }
             catch (Exception e)
             {
-                Logger.Error(e, "Application startind error");
+                Logger.Error(e, "Application starting error");
                 throw;
             }
         }
