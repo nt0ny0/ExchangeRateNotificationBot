@@ -31,10 +31,7 @@ namespace App.Host
         static void WaitStopCommand()
         {
             bool isContinue = true;
-            Console.CancelKeyPress += (sender, args) =>
-            {
-                isContinue = false;
-            };
+            Console.CancelKeyPress += (sender, args) => isContinue = false;
             Console.WriteLine("Press CTRL+C to exit");
             while (isContinue) { }
             Console.WriteLine("Application shutdown");
