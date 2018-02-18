@@ -3,11 +3,13 @@ using System.IO;
 using Autofac;
 using Microsoft.Extensions.Configuration;
 using App;
+using NLog;
 
 namespace App.Host
 {
     class Program
     {
+        private static ILogger _logger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
             try
@@ -18,12 +20,12 @@ namespace App.Host
                 var configuration = configurationBuilder.Build();
                 var app = new Application();
                 app.Run(configuration);
-                Console.WriteLine("Application stared");
+                _logger.Info("Application stared");
                 WaitStopCommand();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                _logger.Error(e, "Application startind error");
                 throw;
             }
         }
@@ -32,9 +34,9 @@ namespace App.Host
         {
             bool isContinue = true;
             Console.CancelKeyPress += (sender, args) => isContinue = false;
-            Console.WriteLine("Press CTRL+C to exit");
+            _logger.Info("Press CTRL+C to exit");
             while (isContinue) { }
-            Console.WriteLine("Application shutdown");
+            _logger.Info("Application shutdown");
         }
     }
 }
