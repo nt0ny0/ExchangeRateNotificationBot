@@ -17,8 +17,8 @@ namespace App.Host
                     .AddJsonFile("appsettings.json");
                 var configuration = configurationBuilder.Build();
                 var app = new Application();
-                Console.WriteLine("Application stared");
                 app.Run(configuration);
+                Console.WriteLine("Application stared");
                 WaitStopCommand();
             }
             catch (Exception e)
@@ -28,7 +28,7 @@ namespace App.Host
             }
         }
 
-        static void WaitStopCommand()
+       private static void WaitStopCommand()
         {
             bool isContinue = true;
             Console.CancelKeyPress += (sender, args) => isContinue = false;
