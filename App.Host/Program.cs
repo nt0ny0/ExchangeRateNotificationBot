@@ -9,7 +9,7 @@ namespace App.Host
 {
     class Program
     {
-        private static ILogger _logger = LogManager.GetCurrentClassLogger();
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         static void Main(string[] args)
         {
             try
@@ -18,14 +18,15 @@ namespace App.Host
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json");
                 var configuration = configurationBuilder.Build();
+                var token = configuration["telegram-token"];
                 var app = new Application();
-                app.Run(configuration);
-                _logger.Info("Application stared");
+                app.Run(token);
+                Logger.Info("Application stared");
                 WaitStopCommand();
             }
             catch (Exception e)
             {
-                _logger.Error(e, "Application startind error");
+                Logger.Error(e, "Application startind error");
                 throw;
             }
         }
@@ -34,9 +35,9 @@ namespace App.Host
         {
             bool isContinue = true;
             Console.CancelKeyPress += (sender, args) => isContinue = false;
-            _logger.Info("Press CTRL+C to exit");
+            Logger.Info("Press CTRL+C to exit");
             while (isContinue) { }
-            _logger.Info("Application shutdown");
+            Logger.Info("Application shutdown");
         }
     }
 }
