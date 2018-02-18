@@ -8,9 +8,8 @@ namespace App
 {
     public class Application
     {
-        public void Run(IConfiguration configuration)
+        public void Run(string token)
         {
-            var token = configuration["token"];
             var builder = new ContainerBuilder();
             builder.RegisterModule(new TelegramModule(token));
             var container = builder.Build();
