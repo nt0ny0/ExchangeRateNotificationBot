@@ -1,25 +1,21 @@
-﻿using System.IO;
+﻿using System.Threading.Tasks;
 using Autofac;
 using Microsoft.Extensions.Configuration;
-using  TelegramProviders.Domain;
 using Telegram.Autofac.DI;
+using TelegramProviders.Domain;
 
 namespace App
 {
-    class Program
+    public class Application
     {
-        static void Main(string[] args)
+        public void Run(IConfiguration configuration)
         {
-            var configurationBuilder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
-            var configuration = configurationBuilder.Build();
             var token = configuration["token"];
             var builder = new ContainerBuilder();
             builder.RegisterModule(new TelegramModule(token));
             var container = builder.Build();
             var bot = container.Resolve<IMessengerBot>();
-            bot.Start().Wait();
+            Task.Run(() => bot.Start());
         }
     }
 }

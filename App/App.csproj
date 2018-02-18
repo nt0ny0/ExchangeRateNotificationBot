@@ -1,29 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RuntimeIdentifiers>win10-x64;ubuntu.16.04-x64;ubuntu.16.10-x64</RuntimeIdentifiers>  
-    <TargetFramework>netcoreapp2.0</TargetFramework>  
-    <ApplicationIcon />  
-    <OutputType>Exe</OutputType>  
-    <StartupObject />
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
-    <PackageReference Include="Telegram.Bot" Version="13.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bot\Bot.csproj" />
     <ProjectReference Include="..\Telegram.Autofac.DI\Telegram.Autofac.DI.csproj" />
     <ProjectReference Include="..\TelegramProviders.Domain\TelegramProviders.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
