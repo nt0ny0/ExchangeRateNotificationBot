@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Net.Mime;
+using System.Threading;
 using Autofac;
 using Microsoft.Extensions.Configuration;
 using App;
@@ -20,9 +22,10 @@ namespace App.Host
                 var configuration = configurationBuilder.Build();
                 var token = configuration["telegram-token"];
                 var app = new Application();
-                app.Run(token);
+                CancellationTokenSource source = new CancellationTokenSource();
+                app.Run(token, source.Token);
                 Logger.Info("Application started");
-                WaitStopCommand();
+                WaitStopCommand(source);
             }
             catch (Exception e)
             {
@@ -31,10 +34,14 @@ namespace App.Host
             }
         }
 
-       private static void WaitStopCommand()
+        private static void WaitStopCommand(CancellationTokenSource source)
         {
             bool isContinue = true;
-            Console.CancelKeyPress += (sender, args) => isContinue = false;
+            Console.CancelKeyPress += (sender, args) =>
+            {
+                source.Cancel();
+                isContinue = false;
+            };
             Logger.Info("Press CTRL+C to exit");
             while (isContinue) { }
             Logger.Info("Application shutdown");

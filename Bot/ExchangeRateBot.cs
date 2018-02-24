@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using ExchangeRateService;
+using NLog;
 using TelegramProviders.Domain;
 using TelegramProviders.Domain.Models;
 
@@ -11,8 +12,9 @@ namespace Bot
         private readonly IExchangeRateService _service;
         private readonly IMessengerProvider _provider;
         private static int _offset = 0;
+        private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string CommandListText = $@"
+        private readonly string _commandListText = $@"
 <b>Список команд</b>:
 {UserCommands.UsdToRubGetRate} - текущий курс доллара к рублю
 {UserCommands.EuroToRubGetRate} - текущий курс евро к рублю
@@ -36,37 +38,46 @@ namespace Bot
                         _offset = requestBatch.Offset;
                         foreach (var userRequest in requestBatch.Requests)
                         {
-                            switch (userRequest.UserRequestType)
-                            {
-                                case UserRequestType.GetUsdToRubExchangeRate:
-                                {
-                                    await HandleGetExchangeRateRequest(userRequest.UserId, "USD", "RUB");
-                                    break;
-                                }
-                                case UserRequestType.GetEuroToRubExchangeRate:
-                                {
-                                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "RUB");
-                                    break;
-                                }
-                                case UserRequestType.GetEuroToUsdExchangeRate:
-                                {
-                                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "USD");
-                                    break;
-                                }
-                                default:
-                                {
-                                    await _provider.SendMessage(userRequest.UserId, CommandListText);
-                                    break;
-                                }
-                            }
+                            await HandleUserRequest(userRequest);
                         }
                     }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    _logger.Error(e, "Error while try to handle user request");
                 }
                 await Task.Delay(TimeSpan.FromSeconds(1));
+            }
+        }
+
+        private async Task HandleUserRequest(UserRequest userRequest)
+        {
+            if (userRequest == null)
+            {
+                throw new ArgumentNullException(nameof(userRequest));
+            }
+            switch (userRequest.UserRequestType)
+            {
+                case UserRequestType.GetUsdToRubExchangeRate:
+                {
+                    await HandleGetExchangeRateRequest(userRequest.UserId, "USD", "RUB");
+                    break;
+                }
+                case UserRequestType.GetEuroToRubExchangeRate:
+                {
+                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "RUB");
+                    break;
+                }
+                case UserRequestType.GetEuroToUsdExchangeRate:
+                {
+                    await HandleGetExchangeRateRequest(userRequest.UserId, "EUR", "USD");
+                    break;
+                }
+                default:
+                {
+                    await _provider.SendMessage(userRequest.UserId, _commandListText);
+                    break;
+                }
             }
         }
 

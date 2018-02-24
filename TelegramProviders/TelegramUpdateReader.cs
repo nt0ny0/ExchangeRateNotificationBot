@@ -18,17 +18,27 @@ namespace TelegramProviders
             {
                 throw new ArgumentNullException(nameof(update));
             }
-            if (update.Type == UpdateType.MessageUpdate)
+            UserRequest result;
+            switch (update.Type)
             {
-                var message = update.Message;
-                if (message == null)
+                case UpdateType.MessageUpdate:
                 {
-                    return null;
+                    var message = update.Message;
+                    if (message == null)
+                    {
+                        return null;
+                    }
+                    var requestType = _requestParser.Parse(message.Text);
+                    result = new UserRequest(message.From.Id.ToString(), requestType);
+                    break;
                 }
-                var requestType = _requestParser.Parse(message.Text);
-                return new UserRequest(message.From.Id.ToString(), requestType);
+                default:
+                {
+                    result = new UserRequest(null, UserRequestType.Unknown);
+                    break;
+                }
             }
-            return new UserRequest(null, UserRequestType.Unknown);
+            return result;
         }
     }
 }

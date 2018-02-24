@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="NLog" Version="4.5.0-rc06" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ExchangeRateService\ExchangeRateService.csproj" />
     <ProjectReference Include="..\TelegramProviders.Domain\TelegramProviders.Domain.csproj" />
   </ItemGroup>
