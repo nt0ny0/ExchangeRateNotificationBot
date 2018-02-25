@@ -2,6 +2,7 @@
 using Autofac;
 using Bot;
 using ExchangeRateService;
+using Microsoft.Extensions.Configuration;
 using Telegram.Bot;
 using TelegramProviders;
 using TelegramProviders.Domain;
@@ -10,20 +11,22 @@ namespace Telegram.Autofac.DI
 {
     public class TelegramModule : Module
     {
-        private readonly string _telegramToken;
+        private readonly IConfiguration _configuration;
 
-        public TelegramModule(string telegramToken)
+        public TelegramModule(IConfiguration configuration)
         {
-            if (string.IsNullOrEmpty(telegramToken))
-            {
-                throw new ArgumentException($"{nameof(telegramToken)} is null or empty");
-            }
-            _telegramToken = telegramToken;
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration)); 
         }
         protected override void Load(ContainerBuilder builder)
         {
             base.Load(builder);
-            builder.Register<ITelegramBotClient>((ctx) => new TelegramBotClient(_telegramToken)).SingleInstance();
+            var telegramToken = _configuration["telegram-token"];
+            if (string.IsNullOrEmpty(telegramToken))
+            {
+                throw new ArgumentException("telegram-token configuration parameter is null or empty");
+            }
+            builder.Register<ITelegramBotClient>((ctx) => new TelegramBotClient(telegramToken))
+                .SingleInstance();
             builder.RegisterType<TelegramProvider>()
                 .As<IMessengerProvider>()
                 .SingleInstance();

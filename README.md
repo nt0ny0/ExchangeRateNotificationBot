@@ -1,3 +1,3 @@
 
 
-bot name - @ExhageRateNotificationBot
+bot name - @RubExchangeRateBot

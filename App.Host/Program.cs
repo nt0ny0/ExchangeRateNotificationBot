@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
-using System.Net.Mime;
 using System.Threading;
-using Autofac;
 using Microsoft.Extensions.Configuration;
 using App;
 using NLog;
@@ -20,9 +18,8 @@ namespace App.Host
                     .SetBasePath(Directory.GetCurrentDirectory())
                     .AddJsonFile("appsettings.json");
                 var configuration = configurationBuilder.Build();
-                var token = configuration["telegram-token"];
                 var app = new Application();
-                app.Run(token);
+                app.Run(configuration);
                 Logger.Info("Application started");
                 WaitStopCommand();
             }
