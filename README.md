@@ -1,4 +1,5 @@
 
 
 bot name - @RubExchangeRateBot
-t.me/RubExchangeRateBot
+
+[try bot]: t.me/RubExchangeRateBot
