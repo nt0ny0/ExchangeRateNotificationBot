@@ -2,4 +2,4 @@
 
 bot name - @RubExchangeRateBot
 
-[link text itself]: http://www.reddit.com
+[Try bot](t.me/RubExchangeRateBot)
