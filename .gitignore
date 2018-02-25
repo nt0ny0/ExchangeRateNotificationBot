@@ -340,6 +340,7 @@ ASALocalRun/
 # MSBuild Binary and Structured Log
 *.binlog
 
+.vs/
 
 © 2018 GitHub, Inc.
 Terms
