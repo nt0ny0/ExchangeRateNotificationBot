@@ -341,6 +341,9 @@ ASALocalRun/
 *.binlog
 
 .vs/
+App.Host/appsettings.json
+*/obj/
+
 
 © 2018 GitHub, Inc.
 Terms

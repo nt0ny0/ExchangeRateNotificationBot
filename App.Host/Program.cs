@@ -22,10 +22,9 @@ namespace App.Host
                 var configuration = configurationBuilder.Build();
                 var token = configuration["telegram-token"];
                 var app = new Application();
-                CancellationTokenSource source = new CancellationTokenSource();
-                app.Run(token, source.Token);
+                app.Run(token);
                 Logger.Info("Application started");
-                WaitStopCommand(source);
+                WaitStopCommand();
             }
             catch (Exception e)
             {
@@ -34,17 +33,17 @@ namespace App.Host
             }
         }
 
-        private static void WaitStopCommand(CancellationTokenSource source)
+        private static void WaitStopCommand()
         {
-            bool isContinue = true;
+            Logger.Info("Press CTRL+C to exit");
+            var stopEvent = new ManualResetEventSlim();
             Console.CancelKeyPress += (sender, args) =>
             {
-                source.Cancel();
-                isContinue = false;
+                stopEvent.Set();
+                args.Cancel = true;
             };
-            Logger.Info("Press CTRL+C to exit");
-            while (isContinue) { }
-            Logger.Info("Application shutdown");
+            stopEvent.Wait();
+            Logger.Info("Application shut down");
         }
     }
 }

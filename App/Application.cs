@@ -9,13 +9,13 @@ namespace App
 {
     public class Application
     {
-        public void Run(string token, CancellationToken cancellationToken)
+        public void Run(string token)
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule(new TelegramModule(token));
             var container = builder.Build();
             var bot = container.Resolve<IMessengerBot>();
-            Task.Run(() => bot.Start(), cancellationToken);
+            Task.Run(() => bot.Start());
         }
     }
 }
