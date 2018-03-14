@@ -89,7 +89,7 @@ namespace Bot
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                _logger.Error(e, "Error while try to get exchange rate");
                 var serviceUnawailableMessage = _helpCommandTextBuilder.BuildErrorMessage(e);
                 await _provider.SendMessage(userId, serviceUnawailableMessage);
                 throw;
