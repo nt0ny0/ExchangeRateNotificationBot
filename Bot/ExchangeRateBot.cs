@@ -82,7 +82,7 @@ namespace Bot
 
         private async Task HandleGetExchangeRateRequest(string userId, string currencyFrom, string currencyTo)
         {
-            string rate = null;
+            decimal rate = 0;
             try
             {
                 rate = await _service.GetRate(currencyFrom, currencyTo);
@@ -94,7 +94,7 @@ namespace Bot
                 await _provider.SendMessage(userId, serviceUnawailableMessage);
             }
 
-            string response = $"{rate} {UserCommands.GetHelp}";
+            string response = $"1 {currencyFrom} =  {rate} {currencyTo} {UserCommands.GetHelp}";
             await _provider.SendMessage(userId, response);
         }
     }

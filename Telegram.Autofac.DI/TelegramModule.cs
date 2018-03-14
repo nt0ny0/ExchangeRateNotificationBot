@@ -21,6 +21,7 @@ namespace Telegram.Autofac.DI
         {
             base.Load(builder);
             var telegramToken = _configuration["telegram-token"];
+            var exchangeRateServiceBaseUrl = _configuration["exchange-rate-service-url"];
             if (string.IsNullOrEmpty(telegramToken))
             {
                 throw new ArgumentException("telegram-token configuration parameter is null or empty");
@@ -37,7 +38,14 @@ namespace Telegram.Autofac.DI
             builder.RegisterType<UserMessageRequestParser>()
                 .As<IUserMessageRequestParser>()
                 .SingleInstance();
-            builder.RegisterType<GoogleExchangeRateService>()
+            builder.RegisterType<GoogleExchangeRateServiceResponseParser>()
+                .As<IExchangeRateServiceResponseParser>()
+                .SingleInstance();
+            builder.Register(c =>
+                {
+                    var parser = c.Resolve<IExchangeRateServiceResponseParser>();
+                    return new GoogleExchangeRateService(exchangeRateServiceBaseUrl, parser);
+                })
                 .As<IExchangeRateService>()
                 .SingleInstance();
             builder.RegisterType<ExchangeRateBotHelpCommandTextBuilder>()
