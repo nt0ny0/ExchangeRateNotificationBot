@@ -25,7 +25,6 @@ namespace Bot
 
         public async Task Start()
         {
-
             var offset = 0;
             while (true)
             {
