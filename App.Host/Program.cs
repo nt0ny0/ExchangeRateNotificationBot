@@ -37,6 +37,7 @@ namespace App.Host
             var fileInfo = new FileInfo(Assembly.GetExecutingAssembly().Location);
             return fileInfo.DirectoryName;
         }
+
         private static void WaitStopCommand()
         {
             Logger.Info("Press CTRL+C to exit");
