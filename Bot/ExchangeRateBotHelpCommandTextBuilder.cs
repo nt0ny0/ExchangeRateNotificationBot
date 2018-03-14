@@ -16,7 +16,7 @@ namespace Bot
             return _helpText;
         }
 
-        public string BuildServiceUnawailableMessage(Exception exception)
+        public string BuildErrorMessage(Exception exception)
         {
             return "Сервис временно недоступен";
         }

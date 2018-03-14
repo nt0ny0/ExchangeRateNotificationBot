@@ -90,7 +90,7 @@ namespace Bot
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                var serviceUnawailableMessage = _helpCommandTextBuilder.BuildServiceUnawailableMessage(e);
+                var serviceUnawailableMessage = _helpCommandTextBuilder.BuildErrorMessage(e);
                 await _provider.SendMessage(userId, serviceUnawailableMessage);
             }
 
