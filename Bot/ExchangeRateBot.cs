@@ -12,7 +12,6 @@ namespace Bot
         private readonly IHelpCommandTextBuilder _helpCommandTextBuilder;
         private readonly IExchangeRateService _service;
         private readonly IMessengerProvider _provider;
-        private int _offset;
         private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
 
         public ExchangeRateBot(IMessengerProvider provider,
@@ -26,14 +25,16 @@ namespace Bot
 
         public async Task Start()
         {
+
+            var offset = 0;
             while (true)
             {
                 try
                 {
-                    var requestBatch = await _provider.GetUserRequests(_offset);
+                    var requestBatch = await _provider.GetUserRequests(offset);
                     if (requestBatch != null)
                     {
-                        _offset = requestBatch.Offset;
+                        offset = requestBatch.Offset;
                         foreach (var userRequest in requestBatch.Requests)
                         {
                             await HandleUserRequest(userRequest);

@@ -26,7 +26,7 @@ namespace Telegram.Autofac.DI
             {
                 throw new ArgumentException("telegram-token configuration parameter is null or empty");
             }
-            // all services immutable and not disposable. So we can use single instance
+            // all services are thread safe
             builder.Register<ITelegramBotClient>((ctx) => new TelegramBotClient(telegramToken))
                 .SingleInstance();
             builder.RegisterType<TelegramProvider>()
