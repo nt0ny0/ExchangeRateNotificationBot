@@ -15,8 +15,9 @@ namespace App.Host
         {
             try
             {
+                var rootPath = GetRootPath();
                 var configurationBuilder = new ConfigurationBuilder()
-                    .SetBasePath(Assembly.GetExecutingAssembly().Location)
+                    .SetBasePath(rootPath)
                     .AddJsonFile("appsettings.json");
                 var configuration = configurationBuilder.Build();
                 var app = new Application();
@@ -31,6 +32,11 @@ namespace App.Host
             }
         }
 
+        private static string GetRootPath()
+        {
+            var fileInfo = new FileInfo(Assembly.GetExecutingAssembly().Location);
+            return fileInfo.DirectoryName;
+        }
         private static void WaitStopCommand()
         {
             Logger.Info("Press CTRL+C to exit");
