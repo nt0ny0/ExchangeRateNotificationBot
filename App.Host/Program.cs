@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Reflection;
 using System.Threading;
 using Microsoft.Extensions.Configuration;
 using App;
@@ -15,7 +16,7 @@ namespace App.Host
             try
             {
                 var configurationBuilder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .SetBasePath(Assembly.GetExecutingAssembly().Location)
                     .AddJsonFile("appsettings.json");
                 var configuration = configurationBuilder.Build();
                 var app = new Application();

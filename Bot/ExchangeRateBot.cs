@@ -9,21 +9,19 @@ namespace Bot
 {
     public class ExchangeRateBot : IMessengerBot
     {
+        private readonly IHelpCommandTextBuilder _helpCommandTextBuilder;
         private readonly IExchangeRateService _service;
         private readonly IMessengerProvider _provider;
-        private static int _offset = 0;
+        private int _offset;
         private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
 
-        private readonly string _commandListText = $@"
-<b>Список команд</b>:
-{UserCommands.UsdToRubGetRate} - текущий курс доллара к рублю
-{UserCommands.EuroToRubGetRate} - текущий курс евро к рублю
-{UserCommands.EuroToUsdGetRate} - текущий курс доллара к евро";
-
-        public ExchangeRateBot(IMessengerProvider provider, IExchangeRateService exchangeRateService)
+        public ExchangeRateBot(IMessengerProvider provider,
+            IExchangeRateService exchangeRateService,
+            IHelpCommandTextBuilder helpCommandTextBuilder)
         {
             _service = exchangeRateService ?? throw new ArgumentNullException(nameof(exchangeRateService));
             _provider = provider ?? throw new ArgumentNullException(nameof(provider));
+            _helpCommandTextBuilder = helpCommandTextBuilder ?? throw new ArgumentNullException(nameof(helpCommandTextBuilder));
         }
 
         public async Task Start()
@@ -75,7 +73,8 @@ namespace Bot
                 }
                 default:
                 {
-                    await _provider.SendMessage(userRequest.UserId, _commandListText);
+                    var helpText = _helpCommandTextBuilder.BuildHelpCommandText(); 
+                    await _provider.SendMessage(userRequest.UserId, helpText);
                     break;
                 }
             }
@@ -91,8 +90,8 @@ namespace Bot
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                await _provider.SendMessage(userId, "Сервис временно недоступен");
-                ;
+                var serviceUnawailableMessage = _helpCommandTextBuilder.BuildServiceUnawailableMessage(e);
+                await _provider.SendMessage(userId, serviceUnawailableMessage);
             }
 
             string response = $"{rate} {UserCommands.GetHelp}";

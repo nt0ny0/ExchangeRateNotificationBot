@@ -25,6 +25,7 @@ namespace Telegram.Autofac.DI
             {
                 throw new ArgumentException("telegram-token configuration parameter is null or empty");
             }
+            // all services immutable and not disposable. So we can use single instance
             builder.Register<ITelegramBotClient>((ctx) => new TelegramBotClient(telegramToken))
                 .SingleInstance();
             builder.RegisterType<TelegramProvider>()
@@ -38,6 +39,9 @@ namespace Telegram.Autofac.DI
                 .SingleInstance();
             builder.RegisterType<GoogleExchangeRateService>()
                 .As<IExchangeRateService>()
+                .SingleInstance();
+            builder.RegisterType<ExchangeRateBotHelpCommandTextBuilder>()
+                .As<IHelpCommandTextBuilder>()
                 .SingleInstance();
             builder.RegisterType<ExchangeRateBot>()
                 .As<IMessengerBot>()
