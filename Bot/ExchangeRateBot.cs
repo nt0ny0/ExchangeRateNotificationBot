@@ -92,6 +92,7 @@ namespace Bot
                 Console.WriteLine(e);
                 var serviceUnawailableMessage = _helpCommandTextBuilder.BuildErrorMessage(e);
                 await _provider.SendMessage(userId, serviceUnawailableMessage);
+                throw;
             }
 
             string response = $"1 {currencyFrom} =  {rate} {currencyTo} {UserCommands.GetHelp}";
