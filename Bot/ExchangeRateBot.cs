@@ -94,7 +94,6 @@ namespace Bot
                 await _provider.SendMessage(userId, serviceUnawailableMessage);
                 throw;
             }
-
             string response = $"1 {currencyFrom} =  {rate} {currencyTo} {UserCommands.GetHelp}";
             await _provider.SendMessage(userId, response);
         }
