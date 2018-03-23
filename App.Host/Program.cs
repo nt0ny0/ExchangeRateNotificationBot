@@ -40,7 +40,7 @@ namespace App.Host
 
         private static void WaitStopCommand()
         {
-            Logger.Info("Press CTRL+C to exit");
+            Console.WriteLine("Press CTRL+C to exit");
             var stopEvent = new ManualResetEventSlim();
             Console.CancelKeyPress += (sender, args) =>
             {

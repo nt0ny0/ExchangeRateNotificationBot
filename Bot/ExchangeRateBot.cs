@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using ExchangeRateService;
 using NLog;
@@ -13,6 +14,8 @@ namespace Bot
         private readonly IExchangeRateService _service;
         private readonly IMessengerProvider _provider;
         private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
+        private volatile bool _continueRunning;
+        private readonly ManualResetEventSlim _hasBeenStoppedEvent;
 
         public ExchangeRateBot(IMessengerProvider provider,
             IExchangeRateService exchangeRateService,
@@ -21,12 +24,14 @@ namespace Bot
             _service = exchangeRateService ?? throw new ArgumentNullException(nameof(exchangeRateService));
             _provider = provider ?? throw new ArgumentNullException(nameof(provider));
             _helpCommandTextBuilder = helpCommandTextBuilder ?? throw new ArgumentNullException(nameof(helpCommandTextBuilder));
+            _hasBeenStoppedEvent = new ManualResetEventSlim();
         }
 
         public async Task Start()
         {
             var offset = 0;
-            while (true)
+            _continueRunning = true;
+            while (_continueRunning)
             {
                 try
                 {
@@ -46,6 +51,13 @@ namespace Bot
                 }
                 await Task.Delay(TimeSpan.FromSeconds(1));
             }
+            _hasBeenStoppedEvent.Set();
+        }
+
+        public void Stop()
+        {
+            _continueRunning = false;
+            _hasBeenStoppedEvent.Wait();
         }
 
         private async Task HandleUserRequest(UserRequest userRequest)
