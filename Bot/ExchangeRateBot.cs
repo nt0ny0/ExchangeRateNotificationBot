@@ -14,7 +14,7 @@ namespace Bot
         private readonly IExchangeRateService _service;
         private readonly IMessengerProvider _provider;
         private readonly ILogger _logger = LogManager.GetCurrentClassLogger();
-        private volatile bool _continueRunning;
+        private bool _continueRunning;
         private readonly ManualResetEventSlim _hasBeenStoppedEvent;
 
         public ExchangeRateBot(IMessengerProvider provider,
